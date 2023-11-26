@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Trackeá tus gastos</title>
+
+</head>
+
+<body>
+
+  <div class="contenedor__principal">
+
+    <div class="balance__contenedor">
+
+      <div class="balance">
+
+        <p class="balance__titulo">
+          My spent today
+        </p>
+
+        <div class="balance__input">
+
+          <p>$</p>
+          <input class="balance__numero" id="gastoNumero" type="number">
+          <button onclick="agregarGasto(event)" class="balance__boton" id="btnAgregar">Agregar</button>
+        </div>
+        
+
+      </div>
+
+      <div class="balance__imagen">
+        <img src="./images/logo.svg" alt="">
+      </div>
+
+    </div>
+
+    <div class="gasto-por-dia__contenedor">
+
+      <div class="gastos__titulo">
+
+        <h2>Spending - Last 7 days</h2>
+
+      </div>
+
+      <div class="gastos__barras">
+
+        <canvas id="myChart"></canvas>
+
+      </div>
+
+      <div class="gastos__total">
+
+        <div class="gastos__total-numero">
+          <p class="total__mes">Total this month</p>
+          <span class="total__mes-plata" id="totalGasto">$ 0</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>

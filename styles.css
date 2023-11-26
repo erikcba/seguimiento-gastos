@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;600;700&family=DM+Sans:opsz,wght@9..40,600;9..40,700&family=Montserrat:wght@300;400;500;600;700&family=Overpass:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;;
+}
+
+
+body {
+    background-color: hsl(27, 66%, 92%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100svh;
+}
+
+.contenedor__principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    max-height: 800px;
+    gap: 20px;
+}
+
+.gasto-por-dia__contenedor {
+    display: flex;
+    flex-direction: column;
+}
+
+.gastos__barras {
+    display: flex;
+    gap: 15px;
+    margin: 0 15px ;
+}
+
+.balance__contenedor {
+    background-color: hsl(10, 79%, 65%);
+    width: 100%;
+    height: 12%;
+    border-radius: 12px;
+    color: #fefefe;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.balance__titulo {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.balance__numero {
+    font-size: 1.5rem;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid hsl(10, 69%, 70%);
+    background-color: hsl(10, 79%, 65%);
+    width: 5rem;
+    color: #fefefe;
+}
+
+.balance {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.balance__input {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.balance__input p {
+    font-size: 1.5rem;
+}
+
+input[type=number]::-webkit-inner-spin-button, /* quitar botones del input number */
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.balance__boton {
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #fefefe;
+    color: hsl(10, 79%, 65%);
+    font-size: 1rem;
+}
+
+.balance__boton:hover {
+    cursor: pointer;
+}
+
+
+.gasto-por-dia__contenedor {
+    background-color: #fefefe;
+    width: 100%;
+    border-radius: 12px;
+    padding: 32px;
+}
+
+#myChart {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.gastos__total {
+    border-top: 1px solid rgba(128, 128, 128, 0.32);
+}
+
+.gastos__total-numero {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 20px 20px 0;
+}
+
+.total__mes {
+    color: gray;
+    font-size: 0.8rem;
+}
+
+.total__mes-plata {
+    font-size: 2rem;
+}
