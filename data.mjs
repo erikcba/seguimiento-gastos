@@ -29,6 +29,4 @@ const data = [
   }
 ]
 
-localStorage.setItem('datos', JSON.stringify(data));
-
 export default data;

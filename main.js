@@ -1,7 +1,8 @@
 const ctx = document.getElementById('myChart')
 import data from './data.mjs';
 
-let datosAlmacenados = JSON.parse(localStorage.getItem('datos')) || [];
+let datosAlmacenados = JSON.parse(localStorage.getItem('datos') || data);
+ 
 const today = (new Date(new Date().toLocaleString("en-US", { timeZone: "America/Argentina/Buenos_Aires" })).getDay() + 6) % 7;
 
 const defaultColor = 'hsl(10, 79%, 65%)';
@@ -10,7 +11,12 @@ const currentDayColor = 'hsl(200, 79%, 65%)';
 const btnAgregar = document.getElementById('btnAgregar');
 const totalGasto = document.getElementById('totalGasto')
 
-console.log(datosAlmacenados)
+document.addEventListener("DOMContentLoaded", function () {
+  console.log(datosAlmacenados)
+  totalGasto.innerHTML = `$ ${total}`;
+}
+)
+let total = datosAlmacenados.reduce((acc, cur) => acc + cur.amount, 0);
 
 let chartDatos = datosAlmacenados.map(row => row.amount)
 
@@ -47,13 +53,13 @@ function agregarGasto(event) {
   datosAlmacenados[today].amount += gastoNumero;
 
   actualizarChart()
-
+  
   localStorage.setItem('datos', JSON.stringify(datosAlmacenados))
 
   alert('Gasto agregado')
   document.getElementById('gastoNumero').value = '';
 
-  const total = datosAlmacenados.reduce((acc, cur) => acc + cur.amount, 0);
+  total = datosAlmacenados.reduce((acc, cur) => acc + cur.amount, 0);
   totalGasto.innerHTML = `$ ${total}`;
 }
 
@@ -62,7 +68,7 @@ function actualizarChart() {
   myChart.data.datasets[0].data = datosAlmacenados.map(row => row.amount);
   myChart.data.datasets[0].backgroundColor = datosAlmacenados.map((row, index) => index === today ? currentDayColor : defaultColor);
   myChart.update();
+  console.log(datosAlmacenados)
 }
 
 btnAgregar.addEventListener('click', agregarGasto)
-
