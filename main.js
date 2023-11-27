@@ -10,9 +10,9 @@ const currentDayColor = 'hsl(200, 79%, 65%)';
 const btnAgregar = document.getElementById('btnAgregar');
 const totalGasto = document.getElementById('totalGasto')
 
-console.log(today)
-
 console.log(datosAlmacenados)
+
+let chartDatos = datosAlmacenados.map(row => row.amount)
 
 const myChart = new Chart(ctx, {
   type: 'bar',
@@ -20,7 +20,7 @@ const myChart = new Chart(ctx, {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     datasets: [{
       label: 'Gasto',
-      data: datosAlmacenados.map(row => row.amount),
+      data: chartDatos,
       backgroundColor: datosAlmacenados.map((row, index) => index === today ? currentDayColor : defaultColor),
       borderRadius: 6,
       borderWidth: 1
@@ -46,9 +46,7 @@ function agregarGasto(event) {
 
   datosAlmacenados[today].amount += gastoNumero;
 
-  myChart.data.datasets[0].data = datosAlmacenados.map(row => row.amount);
-  myChart.data.datasets[0].backgroundColor = datosAlmacenados.map((row, index) => index === today ? currentDayColor : defaultColor);
-  myChart.update();
+  actualizarChart()
 
   localStorage.setItem('datos', JSON.stringify(datosAlmacenados))
 
@@ -60,6 +58,11 @@ function agregarGasto(event) {
 }
 
 
+function actualizarChart() {
+  myChart.data.datasets[0].data = datosAlmacenados.map(row => row.amount);
+  myChart.data.datasets[0].backgroundColor = datosAlmacenados.map((row, index) => index === today ? currentDayColor : defaultColor);
+  myChart.update();
+}
 
 btnAgregar.addEventListener('click', agregarGasto)
 
