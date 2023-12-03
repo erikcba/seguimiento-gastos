@@ -58,7 +58,15 @@ function agregarGasto(event) {
 
     localStorage.setItem('datos', JSON.stringify(datosAlmacenados))
 
-    alert('Gasto agregado')
+    Swal.fire({
+      customClass: {
+        confirmButton: 'swalBtnColor'
+      },
+      title: 'Gasto agregado!',
+      text: 'Ya puedes visualizar tus gastos',
+      icon: 'success',
+      confirmButtonText: 'Entendido'
+    })
     document.getElementById('gastoNumero').value = '';
 
     total = datosAlmacenados.reduce((acc, cur) => acc + cur.amount, 0);

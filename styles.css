@@ -82,6 +82,10 @@ body {
     font-size: 1.5rem;
 }
 
+body.swal2-height-auto {
+    height: 100svh;
+}
+
 .swal2-styled.swal2-confirm.swalBtnColor {
     background-color: hsl(10, 79%, 65%);
     outline:3px solid hsl(10, 79%, 65%) ;
